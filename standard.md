@@ -23,30 +23,26 @@ Something...
 这是 1.0 版本中的可用宏。（等号后为默认值）
 
 ```
-\setfont(size=1em,weight=)
+\setfont(size=1em,weight=normal,color=#000000,align=left,decoration=none,font-family="黑体"&"sans-serif")
 ```
-设置后续文本样式。涉及到 `align` 修改则自动换行（即指定了 `align` 值，无论与之前的是否相同）。
+注意，`font-family` 中逗号请用 & 号替代（仅这个宏）
 ```
 \\
 ```
 换行，从下一行的最左端开始。
 ```
-\text-indent(space=2em)
-```
-缩进，默认为中文设定。
-```
 \par
 ```
-换段，相当于 `\\ \text-indent()`
+换段
 
 ## 可用元素
 
 ```
-\beginbox(sizeR=100%,align=center,background-color=transparent)
+\beginbox(sizeR=100%,align=default,background-color=transparent)
 Something...
 \endbox()
 ```
-容器，相当于 "div"。其中 `sizeR` 为相对尺寸，按照 css 的定义处理（仅横向，纵向会自动撑开）。`background-color` 为背景颜色，按照 css 的定义处理。
+容器，相当于 "div"。其中 `sizeR` 为相对尺寸，按照 css 的定义处理（仅横向，纵向会自动撑开）。`align` 的取值为 `center` 或 `default`。`background-color` 为背景颜色，按照 css 的定义处理。
 ```
 \title(text=default)
 ```
@@ -61,9 +57,11 @@ Something...
 必选参数 `url`。`sizeR` 按 css 的 `width` 处理。
 
 ```
-\code(processor=default){}
+\begincode()
+something
+\endcode()
 ```
-代码块，其中 `processor` 指定代码高亮处理器，由编译器定义。
+代码块，注意其中不允许出现 `\endcode()` 字符，该问题无解
 
 ```
 \backslash
