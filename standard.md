@@ -57,11 +57,9 @@ Something...
 必选参数 `url`。`sizeR` 按 css 的 `width` 处理。
 
 ```
-\begincode()
-something
-\endcode()
+\code(CODE-XXX)
 ```
-代码块，注意其中不允许出现 `\endcode()` 字符，该问题无解
+代码块。需要提前在 TSStudio 代码上传器上传。此处填写编号。
 
 ```
 \backslash
@@ -79,9 +77,9 @@ $$f(x)=e^x$$
 ```
 行内代码：
 ```
-`int main()`
+`[CODE-XXX]`
 ```
-按照 markdown 语法处理。行内代码不进行高亮。
+需要提前在 TSStudio 代码上传器上传。此处填写编号。行内代码不进行高亮。
 
 ## 编译器的算法逻辑及转义
 如果你想在文章中直接显示上面所提到的关键字，你就需要用到转义。由于本标准不涉及到“字符串”类型和引号，因此没有多层转义，你只需要注意 `\backslash`。  
