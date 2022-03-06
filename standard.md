@@ -23,9 +23,9 @@ Something...
 这是 1.0 版本中的可用宏。（等号后为默认值）
 
 ```
-\setfont(size=1em,weight=normal,color=#000000,align=left,decoration=none,font-family="黑体"&"sans-serif")
+\setfont(size=1em,weight=normal,color=#000000,align=left,decoration=none,font-family="黑体"#"sans-serif")
 ```
-注意，`font-family` 中逗号请用 & 号替代（仅这个宏）
+注意，`font-family` 中逗号请用 # 号替代（仅这个宏如此，因为逗号会被分割成新的参数）
 ```
 \\
 ```
@@ -57,14 +57,24 @@ Something...
 必选参数 `url`。`sizeR` 按 css 的 `width` 处理。
 
 ```
-\code(CODE-XXX)
+\\CODE
+some code here
+\\CODE
 ```
-代码块。需要提前在 TSStudio 代码上传器上传。此处填写编号。
+代码块。
 
 ```
 \backslash
 ```
 反斜线，即 `\`，因为 `\` 是保留字符，所以需要这样输出
+```
+\dollar
+```
+美元符号，即 `$`，因为 `$` 是保留字符，所以需要这样输出
+```
+\backquote
+```
+反引号，即 `` ` ``，因为 `` ` `` 是保留字符，所以需要这样输出
 ### 特殊对象
 行内公式，例如：
 ```
@@ -77,12 +87,12 @@ $$f(x)=e^x$$
 ```
 行内代码：
 ```
-`[CODE-XXX]`
+`some code here`
 ```
 需要提前在 TSStudio 代码上传器上传。此处填写编号。行内代码不进行高亮。
 
 ## 编译器的算法逻辑及转义
-如果你想在文章中直接显示上面所提到的关键字，你就需要用到转义。由于本标准不涉及到“字符串”类型和引号，因此没有多层转义，你只需要注意 `\backslash`。  
+如果你想在文章中直接显示上面所提到的关键字，你就需要用到转义。由于本标准不涉及到“字符串”类型和引号，因此没有多层转义，你只需要注意上面提到的转义字符即可，如 `\backslash`。  
 编译器的逻辑应当为：  
 1> 公式、代码内的内容，永远不会被认为是“宏”或“元素”（即该部分内容会优先被“保护”起来，使用占位符替换掉）。  
 2> 对内容进行 html 转义。   
