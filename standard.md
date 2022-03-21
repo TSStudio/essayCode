@@ -57,11 +57,11 @@ Something...
 必选参数 `url`。`sizeR` 按 css 的 `width` 处理。
 
 ```
-\\CODE
+\CODE
 some code here
-\\CODE
+\CODE
 ```
-代码块。
+代码块。自动识别语言，暂不支持手动设置。
 
 ```
 \backslash
