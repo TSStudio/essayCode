@@ -8,7 +8,7 @@
 ```
 是“宏”。`\setfont()` 则可以恢复默认，`\setfont(size,,,align)`则可以只修改 `size` 和 `align` 属性
 ```
-\image(url,sizeR)
+\image(url,sizeR,图片)
 ```
 为“元素”，除此之外，元素还有其他形式，比如
 ```
@@ -20,10 +20,10 @@ Something...
 
 ## 可用宏
 
-这是 1.0 版本中的可用宏。（等号后为默认值）
+这是 1.1 版本中的可用宏。（等号后为默认值）
 
 ```
-\setfont(size=1em,weight=normal,color=#000000,align=left,decoration=none,font-family="黑体"#"sans-serif")
+\setfont(size=1em,weight=normal,color=#000000,align=left,decoration=none,font-family=黑体#sans-serif)
 ```
 注意，`font-family` 中逗号请用 # 号替代（仅这个宏如此，因为逗号会被分割成新的参数）
 ```
@@ -34,6 +34,10 @@ Something...
 \par
 ```
 换段。注意：由于采用正则表达式搜索，换行和换段和接下来的内容之间必须有空格。
+```
+\setlang()
+```
+设置代码块中语句的高亮规则，默认（不填参数或未执行过该宏）为自动识别语言。具体支持由编译器选用的代码高亮处理器决定。如 highlight.js。
 ## 可用元素
 
 ```
@@ -51,9 +55,9 @@ Something...
 ```
 小标题
 ```
-\image(url,sizeR=100%)
+\image(url,sizeR=100%,alt=图片)
 ```
-必选参数 `url`。`sizeR` 按 css 的 `width` 处理。
+图片，必选参数 `url`。`sizeR` 按 css 的 `width` 处理。alt 是用于无法加载图片的情况，或给视障人士的，介绍图片大致内容的字符串。
 
 ```
 \CODE
@@ -88,7 +92,7 @@ $$f(x)=e^x$$
 ```
 `some code here`
 ```
-需要提前在 TSStudio 代码上传器上传。此处填写编号。行内代码不进行高亮。
+行内代码不进行高亮。
 
 ## 编译器的算法逻辑及转义
 如果你想在文章中直接显示上面所提到的关键字，你就需要用到转义。由于本标准不涉及到“字符串”类型和引号，因此没有多层转义，你只需要注意上面提到的转义字符即可，如 `\backslash`。  
